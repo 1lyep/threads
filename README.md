@@ -4,7 +4,7 @@
 
 ## 把这段话交给 agent
 
-> 请从 https://github.com/1lyep/xiantou-board 部署线头。按本机系统和 CPU 下载最新 Release 的绿色包，核对 SHA-256，解压到我的用户目录里一个固定、可写的位置。安装当前 agent 的 threads skill，打开看板，验证网页和 CLI 都能读取数据。保留已有看板和自定义 skill。最后告诉我打开方式、数据位置和 skill 路径。
+> 请从 https://github.com/1lyep/threads 部署线头。按本机系统和 CPU 下载最新 Release 的绿色包，核对 SHA-256，解压到我的用户目录里一个固定、可写的位置。安装当前 agent 的 threads skill，打开看板，验证网页和 CLI 都能读取数据。保留已有看板和自定义 skill。最后告诉我打开方式、数据位置和 skill 路径。
 
 ## 1. 选包并解压
 
@@ -12,11 +12,11 @@
 
 | 系统 | x64 | ARM64 |
 | --- | --- | --- |
-| Windows | [Windows x64 ZIP](https://github.com/1lyep/xiantou-board/releases/latest/download/xiantou-win-x64.zip) | [Windows ARM64 ZIP](https://github.com/1lyep/xiantou-board/releases/latest/download/xiantou-win-arm64.zip) |
-| macOS | [Intel Mac](https://github.com/1lyep/xiantou-board/releases/latest/download/xiantou-darwin-x64.tar.gz) | [Apple 芯片 Mac](https://github.com/1lyep/xiantou-board/releases/latest/download/xiantou-darwin-arm64.tar.gz) |
-| Linux | [Linux x64](https://github.com/1lyep/xiantou-board/releases/latest/download/xiantou-linux-x64.tar.gz) | [Linux ARM64](https://github.com/1lyep/xiantou-board/releases/latest/download/xiantou-linux-arm64.tar.gz) |
+| Windows | [Windows x64 ZIP](https://github.com/1lyep/threads/releases/latest/download/xiantou-win-x64.zip) | [Windows ARM64 ZIP](https://github.com/1lyep/threads/releases/latest/download/xiantou-win-arm64.zip) |
+| macOS | [Intel Mac](https://github.com/1lyep/threads/releases/latest/download/xiantou-darwin-x64.tar.gz) | [Apple 芯片 Mac](https://github.com/1lyep/threads/releases/latest/download/xiantou-darwin-arm64.tar.gz) |
+| Linux | [Linux x64](https://github.com/1lyep/threads/releases/latest/download/xiantou-linux-x64.tar.gz) | [Linux ARM64](https://github.com/1lyep/threads/releases/latest/download/xiantou-linux-arm64.tar.gz) |
 
-同一 Release 的 [SHA256SUMS.txt](https://github.com/1lyep/xiantou-board/releases/latest/download/SHA256SUMS.txt) 列出各包的校验值。Windows 用 `Get-FileHash .\xiantou-win-x64.zip -Algorithm SHA256`；macOS 用 `shasum -a 256 文件名`，Linux 用 `sha256sum 文件名`。与所选文件对应的一行一致后解压。Windows 可用资源管理器的“全部解压”或 `Expand-Archive`，macOS 和 Linux 可用 `tar -xzf 文件名`。进入解压出的 `xiantou` 文件夹，以下命令均从这个目录运行。
+同一 Release 的 [SHA256SUMS.txt](https://github.com/1lyep/threads/releases/latest/download/SHA256SUMS.txt) 列出各包的校验值。Windows 用 `Get-FileHash .\xiantou-win-x64.zip -Algorithm SHA256`；macOS 用 `shasum -a 256 文件名`，Linux 用 `sha256sum 文件名`。与所选文件对应的一行一致后解压。Windows 可用资源管理器的“全部解压”或 `Expand-Archive`，macOS 和 Linux 可用 `tar -xzf 文件名`。进入解压出的 `xiantou` 文件夹，以下命令均从这个目录运行。
 
 也可以克隆仓库或选择 GitHub 的 **Code → Download ZIP** 取得源码。启动器依次查找包内 Node.js、系统 Node.js 22+；两者均缺少时会从 nodejs.org 下载固定版本、校验后写入项目的 `runtime/`。macOS / Linux 如果解压工具没有保留执行权限，先运行 `chmod +x ./xt`。只取 skill 可下载 [SKILL.md](skills/threads/SKILL.md)，配合已部署的线头使用。
 
