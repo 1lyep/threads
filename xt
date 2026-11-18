@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+root=$(CDPATH='' cd -P -- "$(dirname -- "$0")" && pwd)
+node_bin="$root/runtime/node"
+if [ ! -x "$node_bin" ]; then
+  if command -v node >/dev/null 2>&1 && node -e 'process.exit(Number(process.versions.node.split(".")[0]) >= 22 ? 0 : 1)'; then
+    node_bin=node
+  else
+    sh "$root/scripts/get-node.sh" "$root"
+  fi
+fi
+if [ "$#" -eq 0 ]; then set -- open; fi
+exec "$node_bin" "$root/bin/xt.js" "$@"

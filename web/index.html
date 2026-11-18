@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>线头</title>
+<link rel="stylesheet" href="vendor/tabler/tabler-icons.css">
+<link rel="stylesheet" href="app.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><i class="ti ti-needle-thread" aria-hidden="true"></i>线头</div>
+  <nav class="tabs">
+    <button type="button" data-view="board" class="on">看板</button>
+    <button type="button" data-view="threads">线头</button>
+  </nav>
+  <div class="today">今天完成 <b id="cnt">0</b></div>
+  <form id="qa" class="qa" autocomplete="off">
+    <select id="qa-thread" aria-label="线头"></select>
+    <input id="qa-title" placeholder="记一件事，回车加入原始需求" maxlength="200">
+  </form>
+</header>
+<main id="board" class="board"></main>
+<main id="threads" class="threads" hidden></main>
+<div id="layer" hidden><div id="dim"></div><article id="panel" role="dialog" aria-modal="true"></article></div>
+<div id="toast" role="status"></div>
+</body>
+</html>
