@@ -240,7 +240,9 @@ function cardEl(c, now) {
   const lvl = a ? a.level : (urgencyLevel(c, now) ?? 0);
   const el = h('div', { class: `k ${isDone ? 'dn' : `L${lvl}`}`, dataset: { id: c.id } },
     h('div', { class: 'kt' }, c.title),
-    !isDone && c.estimateMin ? h('div', { class: 'ew' }, h('span', { class: `est e${estClass(c.estimateMin)}` }, fmtEst(c.estimateMin))) : null,
+    h('div', { class: 'card-tags' },
+      h('span', { class: 'card-tag card-id', title: '卡片编号' }, `#${c.id}`),
+      !isDone && c.estimateMin ? h('span', { class: `card-tag est e${estClass(c.estimateMin)}` }, fmtEst(c.estimateMin)) : null),
     isDone ? checkSvg('sm') : null);
   if (panelId === c.id) el.style.visibility = 'hidden';
   el.addEventListener('pointerdown', onPointerDown);
@@ -306,7 +308,7 @@ async function playDone(k, a) {
     }
   }
   const w = k.offsetWidth; const h0 = k.offsetHeight;
-  const ew = $('.ew', k); const tt = $('.kt', k);
+  const estimate = $('.est', k); const tt = $('.kt', k);
   // 2 打勾
   const ck = checkSvg('big');
   ck.style.left = `${w / 2 - 15}px`;
@@ -326,16 +328,13 @@ async function playDone(k, a) {
   tt.style.opacity = '1';
   tt.style.color = 'var(--done-text)';
   tt.style.paddingRight = '16px';
-  if (ew) {
-    const eh = ew.offsetHeight;
-    ew.animate([{ height: `${eh}px`, opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 320, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' });
-  }
+  estimate?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 320, fill: 'forwards' });
   // 4 归位
   await ck.animate([{ transform: 'translate(0,0) scale(1)' }, { transform: `translate(${w / 2 - 13}px,${13 - h0 / 2}px) scale(.47)` }], { duration: 360, easing: 'cubic-bezier(.5,0,.2,1)', fill: 'forwards' }).finished;
   k.className = 'k dn';
   k.removeAttribute('style');
   tt.removeAttribute('style');
-  if (ew) ew.remove();
+  estimate?.remove();
   fill.remove();
   ck.remove();
   k.append(checkSvg('sm'));

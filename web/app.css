@@ -164,16 +164,17 @@ button { cursor: pointer; }
 }
 .k:hover { filter: brightness(1.12); }
 .k .kt { position: relative; z-index: 2; overflow-wrap: anywhere; }
-.k .ew { position: relative; z-index: 2; overflow: hidden; }
+.card-tags { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 .L0 { background: var(--L0); color: var(--text); }
 .L1 { background: var(--L1); color: var(--L1-text); }
 .L2 { background: var(--L2); color: #fff; }
 .L3 { background: var(--L3); color: #fff; }
 .L4 { background: var(--L4); color: var(--L4-text); }
 
-.est { display: inline-block; font-size: 11px; line-height: 16px; padding: 0 6px; border-radius: 999px; margin-top: 4px; background: rgba(0, 0, 0, .28); }
+.card-tag { font-size: 11px; line-height: 16px; padding: 0 6px; border-radius: 999px; background: rgba(0, 0, 0, .28); }
+.card-id { font-variant-numeric: tabular-nums; }
 .e0 { color: var(--est0); } .e1 { color: var(--est1); } .e2 { color: var(--est2); } .e3 { color: var(--est3); }
-.L4 .est { background: rgba(255, 255, 255, .55); }
+.L4 .card-tag { background: rgba(255, 255, 255, .55); }
 .L4 .e0 { color: #0f6e56; } .L4 .e1 { color: #185fa5; } .L4 .e2 { color: #854f0b; } .L4 .e3 { color: #a32d2d; }
 
 .k.dn { background: var(--done-bg); border-color: var(--done-border); color: var(--done-text); cursor: grab; }
